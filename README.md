@@ -12,13 +12,15 @@
 Este projeto acadêmico visa desenvolver um banco de dados relacional para um sistema de e-commerce. O objetivo é demonstrar a aplicação de conceitos de modelagem de dados, incluindo modelagem conceitual, lógica e física, utilizando ferramentas como BRModelo, DBDiagram e PostgreSQL.
 
 ## Índice
-- [Ferramentas Utilizadas](#ferramentas-utilizadas)
-- [Funcionalidades](#funcionalidades)
-- [Estrutura do Projeto](#estrutura-do-projeto)
-- [Pré-requisitos](#pré-requisitos)
-- [Uso do DBML](#uso-do-dbml)
-- [Execução dos Scripts SQL](#execução-dos-scripts-sql)
-- [Observações](#observações)
+- [Ferramentas Utilizadas](#%F0%9F%9B%B0-ferramentas-utilizadas)
+- [Objetivos / Funcionalidades](#%F0%9F%93%8C-objetivos--funcionalidades)
+- [Estrutura do Projeto](#%F0%9F%93%82-estrutura-do-projeto)
+- [Pré-requisitos](#%E2%9A%99%EF%B8%8F-pr%C3%A9-requisitos)
+- [Uso do DBML](#%F0%9F%96%A5%EF%B8%8F-uso-do-dbml)
+- [Execução dos Scripts SQL](#%F0%9F%9A%80-execu%C3%A7%C3%A3o-dos-scripts-sql)
+- [Observações Técnicas](#%F0%9F%93%9D-observa%C3%A7%C3%B5es-t%C3%A9cnicas)
+- [Referências](#%F0%9F%94%97-refer%C3%AAncias)
+
 
 ---
 
