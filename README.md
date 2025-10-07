@@ -65,11 +65,6 @@ Projeto acadêmico de Banco de Dados Relacional para um sistema de e-commerce. I
 
 ---
 
-## 📸 Diagrama Conceitual
-![Modelo Conceitual](modelagem/modelagem_conceitual.png)
-
----
-
 ## 📝 Observações Técnicas
 - Scripts testados para garantir integridade referencial  
 - Nomes de tabelas e colunas padronizados e consistentes  
