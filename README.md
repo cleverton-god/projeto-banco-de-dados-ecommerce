@@ -3,6 +3,16 @@
 Descrição:
 Projeto acadêmico de Banco de Dados Relacional para um sistema de e-commerce. Inclui modelagem conceitual, lógica e física, além de scripts SQL para criação, inserção, consulta e manutenção de dados.
 
+🛠️ Ferramentas Utilizadas
+
+VS Code — edição de scripts SQL e organização do projeto
+
+pgAdmin — gerenciamento do banco de dados PostgreSQL
+
+DBDiagram — visualização do modelo lógico a partir do arquivo DBML
+
+BRModelo — criação do modelo conceitual (diagrama ER)
+
 📂 Estrutura do Projeto
 
 Modelagem
