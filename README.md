@@ -1,12 +1,24 @@
+
 # 🛒 Projeto: Banco de Dados E-commerce
 
+![Status](https://img.shields.io/badge/status-pronto-brightgreen)
+![SQL](https://img.shields.io/badge/Linguagem-SQL-blue)
 ![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue)
 ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-blueviolet)
 ![DBDiagram](https://img.shields.io/badge/Modelagem-DBDiagram-orange)
 ![BRModelo](https://img.shields.io/badge/Modelagem-BRModelo-green)
 
 **Descrição:**  
-Projeto acadêmico de Banco de Dados Relacional para um sistema de e-commerce. Inclui modelagem **conceitual, lógica e física**, além de **scripts SQL** para criação, inserção, consulta e manutenção de dados.
+Este projeto acadêmico visa desenvolver um banco de dados relacional para um sistema de e-commerce. O objetivo é demonstrar a aplicação de conceitos de modelagem de dados, incluindo modelagem conceitual, lógica e física, utilizando ferramentas como BRModelo, DBDiagram e PostgreSQL.
+
+## Índice
+- [Ferramentas Utilizadas](#ferramentas-utilizadas)
+- [Funcionalidades](#funcionalidades)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Uso do DBML](#uso-do-dbml)
+- [Execução dos Scripts SQL](#execução-dos-scripts-sql)
+- [Observações](#observações)
 
 ---
 
