@@ -1,0 +1,98 @@
+Table Cliente {
+  id_cliente int [pk, increment]
+  nome varchar(100) [not null]
+  email varchar(100) [not null, unique]
+  telefone varchar(20)
+  endereco_rua varchar(100)
+  endereco_numero varchar(10)
+  endereco_cidade varchar(50)
+  endereco_estado varchar(50)
+  endereco_cep varchar(20)
+  data_cadastro timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table Categoria {
+  id_categoria int [pk, increment]
+  nome varchar(50) [not null]
+  descricao varchar(255)
+}
+
+Table Produto {
+  id_produto int [pk, increment]
+  id_categoria int [not null, ref: > Categoria.id_categoria]
+  nome varchar(100) [not null]
+  descricao text
+  preco numeric(10,2) [not null]
+  estoque int [default: 0]
+  peso numeric(10,2)
+  dimensao_l numeric(10,2)
+  dimensao_a numeric(10,2)
+  dimensao_p numeric(10,2)
+  data_cadastro timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table Pedido {
+  id_pedido int [pk, increment]
+  id_cliente int [not null, ref: > Cliente.id_cliente]
+  data_pedido timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  status varchar(50) [not null, note: "Aberto, Pago, Cancelado, Enviado, Entregue"]
+}
+
+Table ItemPedido {
+  id_item int [pk, increment]
+  id_pedido int [not null, ref: > Pedido.id_pedido]
+  id_produto int [not null, ref: > Produto.id_produto]
+  quantidade int [not null]
+  preco_unitario numeric(10,2) [not null]
+}
+
+Table Pagamento {
+  id_pagamento int [pk, increment]
+  id_pedido int [not null, ref: > Pedido.id_pedido]
+  forma_pagamento varchar(50) [not null, note: "Cartão, Boleto, Pix, Dinheiro"]
+  valor numeric(10,2) [not null]
+  data_pagamento timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  status varchar(50) [not null, note: "Pendente, Aprovado, Recusado"]
+}
+
+Table Entrega {
+  id_entrega int [pk, increment]
+  id_pedido int [not null, unique, ref: > Pedido.id_pedido]
+  data_envio timestamp
+  data_entrega timestamp
+  status varchar(50) [not null, note: "Preparando, Enviado, Entregue, Atrasado"]
+}
+
+Table Cupom {
+  id_cupom int [pk, increment]
+  codigo varchar(50) [not null, unique]
+  valor_desconto numeric(10,2) [not null]
+  data_validade timestamp [not null]
+  ativo boolean [default: true]
+}
+
+Table PedidoCupom {
+  id_pedido int [not null, ref: > Pedido.id_pedido]
+  id_cupom int [not null, ref: > Cupom.id_cupom]
+  indexes {
+    (id_pedido, id_cupom) [pk]
+  }
+}
+
+Table HistoricoEstoque {
+  id_historico int [pk, increment]
+  id_produto int [not null, ref: > Produto.id_produto]
+  quantidade int [not null]
+  tipo_movimento varchar(50) [not null, note: "Entrada, Saida, Ajuste"]
+  data_movimento timestamp [not null, default: `CURRENT_TIMESTAMP`]
+  observacao text
+}
+
+Table AvaliacaoProduto {
+  id_avaliacao int [pk, increment]
+  id_produto int [not null, ref: > Produto.id_produto]
+  id_cliente int [not null, ref: > Cliente.id_cliente]
+  nota int [not null, note: "1 a 5"]
+  comentario text
+  data_avaliacao timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
