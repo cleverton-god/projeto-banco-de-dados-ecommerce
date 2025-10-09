@@ -1,68 +1,93 @@
-🛒 Projeto: Banco de Dados E-commerce
 
-Descrição:
-Projeto acadêmico de Banco de Dados Relacional para um sistema de e-commerce. Inclui modelagem conceitual, lógica e física, além de scripts SQL para criação, inserção, consulta e manutenção de dados.
+# 🛒 Projeto: Banco de Dados E-commerce
 
-🛠️ Ferramentas Utilizadas
+![Status](https://img.shields.io/badge/status-pronto-brightgreen)
+![SQL](https://img.shields.io/badge/Linguagem-SQL-blue)
+![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue)
+![VS Code](https://img.shields.io/badge/Editor-VS%20Code-blueviolet)
+![DBDiagram](https://img.shields.io/badge/Modelagem-DBDiagram-orange)
+![BRModelo](https://img.shields.io/badge/Modelagem-BRModelo-green)
 
-VS Code — edição de scripts SQL e organização do projeto
+**Descrição:**  
+Este projeto acadêmico visa desenvolver um banco de dados relacional para um sistema de e-commerce. O objetivo é demonstrar a aplicação de conceitos de modelagem de dados, incluindo modelagem conceitual, lógica e física, utilizando ferramentas como BRModelo, DBDiagram e PostgreSQL.
 
-pgAdmin — gerenciamento do banco de dados PostgreSQL
+## Índice
+- [Ferramentas Utilizadas](#%F0%9F%9B%B0-ferramentas-utilizadas)
+- [Objetivos / Funcionalidades](#%F0%9F%93%8C-objetivos--funcionalidades)
+- [Estrutura do Projeto](#%F0%9F%93%82-estrutura-do-projeto)
+- [Pré-requisitos](#%E2%9A%99%EF%B8%8F-pr%C3%A9-requisitos)
+- [Uso do DBML](#%F0%9F%96%A5%EF%B8%8F-uso-do-dbml)
+- [Execução dos Scripts SQL](#%F0%9F%9A%80-execu%C3%A7%C3%A3o-dos-scripts-sql)
+- [Observações Técnicas](#%F0%9F%93%9D-observa%C3%A7%C3%B5es-t%C3%A9cnicas)
+- [Referências](#%F0%9F%94%97-refer%C3%AAncias)
 
-DBDiagram — visualização do modelo lógico a partir do arquivo DBML
 
-BRModelo — criação do modelo conceitual (diagrama ER)
+---
 
-📂 Estrutura do Projeto
+## 🛠️ Ferramentas Utilizadas
+- **VS Code** — edição de scripts SQL e organização do projeto  
+- **pgAdmin** — gerenciamento do banco de dados PostgreSQL  
+- **DBDiagram** — visualização do modelo lógico a partir do arquivo DBML  
+- **BRModelo** — criação do modelo conceitual (diagrama ER)  
 
-Modelagem
+---
 
-modelagem_conceitual.png → Diagrama conceitual
+## 📌 Objetivos / Funcionalidades
+- Gerenciamento de **clientes, produtos e pedidos**  
+- Controle de **estoque e histórico de pedidos**  
+- Aplicação de **cupons de desconto**  
+- Garantir **integridade referencial** e consistência dos dados  
+- Separação de scripts DML por tipo: `INSERT`, `UPDATE`, `DELETE` e `SELECT`  
 
-modelagem_lógica.png → Diagrama lógico
+---
 
-modelagem_lógica.dbml → Arquivo DBML usado no DBDiagram
+## 📂 Estrutura do Projeto
 
-Scripts SQL
+**Modelagem**  
+- `modelagem_conceitual.png` → Diagrama conceitual  
+- `modelagem_lógica.png` → Diagrama lógico  
+- `modelagem_lógica.dbml` → Arquivo DBML usado no DBDiagram  
 
-modelagem_física.sql → Criação das tabelas (DDL)
+**Scripts SQL**  
+- `modelagem_física.sql` → Criação das tabelas (DDL)  
+- `inserts.sql` → Inserção de dados  
+- `consultas.sql` → SELECT  
+- `atualizacoes.sql` → UPDATE  
+- `exclusoes.sql` → DELETE  
 
-Scripts de Atualização (UPDATE) → Atualizações
+---
 
-Scripts de Consulta (SELECT) → Consultas
+## ⚙️ Pré-requisitos
+- Banco de dados compatível com SQL (MySQL, PostgreSQL, etc.)  
+- DBDiagram ou outra ferramenta que suporte arquivos DBML  
 
-Scripts de Exclusão (DELETE) → Exclusões
+---
 
-Scripts de Inserção (INSERT) → Inserção de dados
+## 🖥️ Usando o DBML
+1. Acesse [DBDiagram](https://dbdiagram.io/)  
+2. Clique em **New Diagram**  
+3. Importe `modelagem/modelagem_lógica.dbml`  
+4. Visualize o **diagrama lógico** gerado automaticamente  
 
-⚙️ Pré-requisitos
+---
 
-Banco de dados compatível com SQL (MySQL, PostgreSQL, etc.)
+## 🚀 Executando os Scripts SQL
+1. Crie o banco de dados no seu SGBD  
+2. Execute `modelagem_física.sql` para criar as tabelas  
+3. Execute `inserts.sql` para popular o banco  
+4. Teste operações com `consultas.sql`, `atualizacoes.sql` e `exclusoes.sql`  
 
-DBDiagram ou outra ferramenta que suporte arquivos DBML
+---
 
-🖥️ Usando o DBML
+## 📝 Observações Técnicas
+- Scripts testados para garantir integridade referencial  
+- Nomes de tabelas e colunas padronizados e consistentes  
+- Modelagem organizada para fácil manutenção e escalabilidade  
 
-Acesse DBDiagram
+---
 
-Clique em New Diagram
-
-Importe modelagem/modelagem_lógica.dbml
-
-O diagrama lógico será gerado automaticamente
-
-🚀 Executando os Scripts SQL
-
-Crie o banco de dados no seu SGBD
-
-Execute modelagem_física.sql
-
-Execute inserts.sql para popular o banco
-
-Teste operações com consultas.sql, atualizacoes.sql e exclusoes.sql
-
-📝 Observações
-
-Scripts testados para garantir integridade referencial
-
-Nomes de tabelas e colunas padronizados e consistentes
+## 🔗 Referências
+- [DBDiagram](https://dbdiagram.io/)  
+- [BRModelo](https://brmodelo.com.br/)  
+- [pgAdmin](https://www.pgadmin.org/)  
+- [VS Code](https://code.visualstudio.com/)
