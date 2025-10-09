@@ -23,9 +23,9 @@ SELECT
 FROM
     Produto p
 JOIN
-    ProdutoCategoria pc ON p.id_produto = pc.id_produto -- Adiciona a tabela N:N
+    ProdutoCategoria pc ON p.id_produto = pc.id_produto 
 JOIN
-    Categoria c ON pc.id_categoria = c.id_categoria; -- Junta à categoria
+    Categoria c ON pc.id_categoria = c.id_categoria; 
 
 -- Consultar pedidos de um cliente
 SELECT
