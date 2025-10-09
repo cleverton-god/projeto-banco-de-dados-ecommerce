@@ -2,9 +2,9 @@
 DELETE FROM Cupom
 WHERE codigo = 'NOVOCLIENTE';
 
--- Remover um item do pedido
+-- Exclui o produto com ID 1 do pedido com ID 3
 DELETE FROM ItemPedido
-WHERE id_pedido = [ID_DO_PEDIDO] AND id_produto = [ID_DO_PRODUTO];
+WHERE id_pedido = 3 AND id_produto = 1; 
 
 -- Remover um cliente 
 DELETE FROM Cliente
