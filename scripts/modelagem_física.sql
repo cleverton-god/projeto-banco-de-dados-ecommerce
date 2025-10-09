@@ -6,12 +6,21 @@ CREATE TABLE Cliente (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     telefone VARCHAR(20),
-    endereco_rua VARCHAR(100),
-    endereco_numero VARCHAR(10),
-    endereco_cidade VARCHAR(50),
-    endereco_estado VARCHAR(50),
-    endereco_cep VARCHAR(20),
     data_cadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ======================================
+-- Tabela Endereco
+-- = ======================================
+CREATE TABLE Endereco (
+    id_endereco SERIAL PRIMARY KEY,
+    id_cliente INT NOT NULL REFERENCES Cliente(id_cliente),
+    rua VARCHAR(100) NOT NULL,
+    numero VARCHAR(10) NOT NULL,
+    cidade VARCHAR(50) NOT NULL,
+    estado VARCHAR(50) NOT NULL,
+    cep VARCHAR(20) NOT NULL,
+    tipo VARCHAR(50)
 );
 
 -- ======================================
@@ -19,7 +28,7 @@ CREATE TABLE Cliente (
 -- ======================================
 CREATE TABLE Categoria (
     id_categoria SERIAL PRIMARY KEY,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(50) NOT NULL UNIQUE,
     descricao VARCHAR(255)
 );
 
@@ -28,7 +37,6 @@ CREATE TABLE Categoria (
 -- ======================================
 CREATE TABLE Produto (
     id_produto SERIAL PRIMARY KEY,
-    id_categoria INT NOT NULL REFERENCES Categoria(id_categoria),
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     preco NUMERIC(10,2) NOT NULL CHECK (preco >= 0),
@@ -38,6 +46,15 @@ CREATE TABLE Produto (
     dimensao_a NUMERIC(10,2),
     dimensao_p NUMERIC(10,2),
     data_cadastro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- ======================================
+-- Tabela ProdutoCategoria
+-- ======================================
+CREATE TABLE ProdutoCategoria (
+    id_produto INT NOT NULL REFERENCES Produto(id_produto),
+    id_categoria INT NOT NULL REFERENCES Categoria(id_categoria),
+    PRIMARY KEY (id_produto, id_categoria)
 );
 
 -- ======================================
@@ -54,11 +71,11 @@ CREATE TABLE Pedido (
 -- Tabela ItemPedido
 -- ======================================
 CREATE TABLE ItemPedido (
-    id_item SERIAL PRIMARY KEY,
     id_pedido INT NOT NULL REFERENCES Pedido(id_pedido),
     id_produto INT NOT NULL REFERENCES Produto(id_produto),
     quantidade INT NOT NULL CHECK (quantidade > 0),
-    preco_unitario NUMERIC(10,2) NOT NULL CHECK (preco_unitario >= 0)
+    preco_unitario NUMERIC(10,2) NOT NULL CHECK (preco_unitario >= 0),
+    PRIMARY KEY (id_pedido, id_produto)
 );
 
 -- ======================================
@@ -96,7 +113,7 @@ CREATE TABLE Cupom (
 );
 
 -- ======================================
--- Tabela PedidoCupom (N:N)
+-- Tabela PedidoCupom
 -- ======================================
 CREATE TABLE PedidoCupom (
     id_pedido INT NOT NULL REFERENCES Pedido(id_pedido),

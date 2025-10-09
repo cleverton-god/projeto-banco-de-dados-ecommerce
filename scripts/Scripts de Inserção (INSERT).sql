@@ -1,8 +1,14 @@
 -- Inserir clientes
-INSERT INTO Cliente (nome, email, telefone, endereco_rua, endereco_numero, endereco_cidade, endereco_estado, endereco_cep)
+INSERT INTO Cliente (nome, email, telefone)
 VALUES 
-('João Silva', 'joao@email.com', '11999999999', 'Rua A', '123', 'São Paulo', 'SP', '01001-000'),
-('Maria Oliveira', 'maria@email.com', '11988888888', 'Rua B', '456', 'Rio de Janeiro', 'RJ', '20010-000');
+('João Silva', 'joao@email.com', '11999999999'),
+('Maria Oliveira', 'maria@email.com', '11988888888');
+
+-- Inserir endereços
+INSERT INTO Endereco (id_cliente, rua, numero, cidade, estado, cep, tipo)
+VALUES 
+(1, 'Rua A', '123', 'São Paulo', 'SP', '01001-000', 'Entrega'),
+(2, 'Rua B', '456', 'Rio de Janeiro', 'RJ', '20010-000', 'Entrega');
 
 -- Inserir categorias
 INSERT INTO Categoria (nome, descricao)
@@ -11,10 +17,16 @@ VALUES
 ('Roupas', 'Moda masculina e feminina');
 
 -- Inserir produtos
-INSERT INTO Produto (id_categoria, nome, descricao, preco, estoque, peso, dimensao_l, dimensao_a, dimensao_p)
+INSERT INTO Produto (nome, descricao, preco, estoque, peso, dimensao_l, dimensao_a, dimensao_p)
 VALUES
-(1, 'Smartphone X', 'Smartphone top de linha', 3500.00, 50, 0.180, 7.0, 14.5, 0.8),
-(2, 'Camisa Polo', 'Camisa masculina azul', 120.00, 100, 0.200, 0, 0, 0);
+('Smartphone X', 'Smartphone top de linha', 3500.00, 50, 0.180, 7.0, 14.5, 0.8),
+('Camisa Polo', 'Camisa masculina azul', 120.00, 100, 0.200, 0, 0, 0);
+
+-- Inserir associação Produto-Categoria (N:N)
+INSERT INTO ProdutoCategoria (id_produto, id_categoria)
+VALUES
+(1, 1),
+(2, 2);
 
 -- Inserir pedidos
 INSERT INTO Pedido (id_cliente, status)
