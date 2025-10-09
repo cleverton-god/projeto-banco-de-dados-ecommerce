@@ -1,14 +1,31 @@
+/////////////////////////////////////////////////////
+// 💡 Como usar no dbdiagram.io:
+/*
+1. Acesse https://dbdiagram.io
+2. Crie um novo diagrama.
+3. Cole todo este código no editor.
+4. O modelo será gerado automaticamente.
+5. Ajuste o layout ou exporte como imagem/SQL.
+*/
+/////////////////////////////////////////////////////
+
 Table Cliente {
   id_cliente int [pk, increment]
   nome varchar(100) [not null]
   email varchar(100) [not null, unique]
   telefone varchar(20)
-  endereco_rua varchar(100)
-  endereco_numero varchar(10)
-  endereco_cidade varchar(50)
-  endereco_estado varchar(50)
-  endereco_cep varchar(20)
   data_cadastro timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table Endereco {
+  id_endereco int [pk, increment]
+  id_cliente int [not null, ref: > Cliente.id_cliente]
+  rua varchar(100)
+  numero varchar(10)
+  cidade varchar(50)
+  estado varchar(50)
+  cep varchar(20)
+  tipo varchar(50) [note: "Residencial, Comercial"]
 }
 
 Table Categoria {
@@ -19,7 +36,6 @@ Table Categoria {
 
 Table Produto {
   id_produto int [pk, increment]
-  id_categoria int [not null, ref: > Categoria.id_categoria]
   nome varchar(100) [not null]
   descricao text
   preco numeric(10,2) [not null]
@@ -29,6 +45,14 @@ Table Produto {
   dimensao_a numeric(10,2)
   dimensao_p numeric(10,2)
   data_cadastro timestamp [not null, default: `CURRENT_TIMESTAMP`]
+}
+
+Table ProdutoCategoria {
+  id_produto int [not null, ref: > Produto.id_produto]
+  id_categoria int [not null, ref: > Categoria.id_categoria]
+  indexes {
+    (id_produto, id_categoria) [pk]
+  }
 }
 
 Table Pedido {
@@ -58,6 +82,7 @@ Table Pagamento {
 Table Entrega {
   id_entrega int [pk, increment]
   id_pedido int [not null, unique, ref: > Pedido.id_pedido]
+  id_endereco int [ref: > Endereco.id_endereco]
   data_envio timestamp
   data_entrega timestamp
   status varchar(50) [not null, note: "Preparando, Enviado, Entregue, Atrasado"]
@@ -92,7 +117,10 @@ Table AvaliacaoProduto {
   id_avaliacao int [pk, increment]
   id_produto int [not null, ref: > Produto.id_produto]
   id_cliente int [not null, ref: > Cliente.id_cliente]
+  id_pedido int [ref: > Pedido.id_pedido]
   nota int [not null, note: "1 a 5"]
   comentario text
   data_avaliacao timestamp [not null, default: `CURRENT_TIMESTAMP`]
 }
+
+Ref: "Entrega"."id_entrega" < "Entrega"."id_endereco"
