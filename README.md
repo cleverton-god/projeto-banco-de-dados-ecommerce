@@ -7,6 +7,7 @@
 ![VS Code](https://img.shields.io/badge/Editor-VS%20Code-blueviolet)
 ![DBDiagram](https://img.shields.io/badge/Modelagem-DBDiagram-orange)
 ![BRModelo](https://img.shields.io/badge/Modelagem-BRModelo-green)
+![GitHub](https://img.shields.io/badge/Controle-GitHub-black)
 
 **Descrição:**  
 Este projeto acadêmico visa desenvolver um banco de dados relacional para um sistema de e-commerce. O objetivo é demonstrar a aplicação de conceitos de modelagem de dados, incluindo modelagem conceitual, lógica e física, utilizando ferramentas como BRModelo, DBDiagram e PostgreSQL.
